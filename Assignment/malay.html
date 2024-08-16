@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Cuisines</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <nav id="navbar"></nav>
+    <button id="darkModeToggle" aria-label="Toggle dark mode">🌓</button>
+
+    <div id="main-content" class="container">
+        <h1>Exploring Malay Cuisines</h1>
+        <h2>Discover the Rich Flavors of Malay Food</h2>
+        <p>
+          Malay cuisine is the traditiona food of the ethnic Malays of Southeast Asia, residing in modern-day Malaysia.
+          The main characteristic of traditional Malay cuisine is the generous use of spices. Coconut milk is also important 
+          in giving Malay dishes their rich, creamy character. The other foundation is belacan (prawn paste), which is used as
+          a base for sambal, a rich sauce or condiment made from belacan, chili peppers, onions and garlic.
+
+        </p>
+
+        <div class="malay-grid">
+            <div class="cuisine" onclick="toggleRecipe('nasilemak')">
+                <div class="wrapper">
+                    <div class="image">
+                    <img src="NasiLemak.jpg" alt="nasilemak">
+                    <div class="content">
+                    <h1>Nasi Lemak</h1>
+                    </div>
+                </div>
+                </div>  
+            <div id="nasilemak" class="recipe">
+                    Nasi lemak is a traditional food of the Malays. The dish refers to rice that is cooked using coconut milk to add fat.
+                    Sometimes, fragrant pandan leaves are added while the rice is being cooked to increase its aroma. 
+                    Nasi lemak was originally not a mandatory daily breakfast food for the Malaysian Malay community in general.
+            </div>         
+            </div>
+
+            <div class="cuisine" onclick="toggleRecipe('nasikerabu')">
+                <div class="wrapper">
+                    <div class="image">
+                    <img src="nasikerabu.jpg" alt="nasikerabu">
+                    <div class="content">
+                    <h1>Nasi Kerabu</h1>
+                    </div>
+                </div>
+                </div>  
+            <div id="nasikerabu" class="recipe">
+                    Nasi kerabu is a food that originates from the east coast of Malaysia and also the regions in the South of Thailand.
+                    It is a rice dish that is originally bluish in color, and is usually eaten with dried fish or chichen.
+                    The blue color of the rice comes from the petals of the telang flower used in cooking. 
+                    There are many variations of Nasi Kerabu based on its color. There are yellow, white, black and blue kerabu rice.
+                </div>         
+            </div>
+
+            <div class="cuisine" onclick="toggleRecipe('ketupat')">
+                <div class="wrapper">
+                    <div class="image">
+                    <img src="ketupat.jpg" alt="ketupat">
+                    <div class="content">
+                    <h1>Ketupat</h1>
+                    </div>
+                </div>
+                </div>  
+            <div id="ketupat" class="recipe">
+                    Ketupat is a rice cake packed inside a diamond-shaped container of woven palm leaft pouch. 
+                    It is commonly described as "packed rice", although there are other types of similar packed rice such as lontong.
+                    Ketupat is cut open until its skin (woven palm leaf) is totally removed. The inner rice cake is then cut into pieces
+                    and served as a staple food in place or plain steamed rice.
+            </div>         
+            </div>
+
+            <div class="cuisine" onclick="toggleRecipe('satay')">
+                <div class="wrapper">
+                    <div class="image">
+                    <img src="satay.jpg" alt="satay">
+                    <div class="content">
+                    <h1>Satay</h1>
+                    </div>
+                </div>
+                </div>  
+            <div id="satay" class="recipe">
+                    Satay is a dish of seasoned, skewered and grilled meat, served with a sauce.
+                    Satay can be served in various sauce, but most often we are served in a combination of soy and peanut sauce.
+                    Hence, peanut sauce is often called satay sauce. 
+            </div>         
+            </div>
+        </div>
+    </div>
+    <footer id="footer"></footer>
+    <script>
+        $(function () {
+            $("#navbar").load("nav.html");
+        });
+        $(function () {
+          $("#footer").load("footer.html");
+        });
+        function toggleRecipe(id) {
+            var recipe = document.getElementById(id);
+            if (recipe.style.display === "none" || recipe.style.display === "") {
+                recipe.style.display = "block";
+            } else {
+                recipe.style.display = "none";
+            }
+        }
+        // Dark mode toggle functionality
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+
+            // Save dark mode preference
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', null);
+            }
+        });
+    </script>
+</body>
+</html>
