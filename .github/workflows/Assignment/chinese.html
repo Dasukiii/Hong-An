@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Cuisine</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <nav id="navbar"></nav>
+    <button id="darkModeToggle" aria-label="Toggle dark mode">🌓</button>
+
+    <div id="main-content" class="container">
+       <h1>Exploring Chinese Cuisines</h1>
+       <h2>Discover the Rich Flavors of Chinese Food</h2>
+        <p>
+          The popularity of Chinese food in Malaysia is comparable. Predicated on a variety
+          of dishes with influences from the cuisines of Fujian, Cantonese, Hakka and Teochew.
+          These Chinese cooking techniques changed throughout time to incorporate regional flavors
+          into their meals.
+        </p>
+   
+    <div class="chinese-grid">
+    <div class="cuisine" onclick="toggleRecipe('bakkutteh')">
+    <div class="wrapper">
+        <div class="image">
+            <img src="BakKutTeh.jpg"/>
+            <div class="content">
+                <h1>Bak Kut Teh</h1>
+            </div>
+        </div> 
+    </div>
+    <div id="bakkutteh" class="recipe">
+        Bak Kut Teh is a type of soup dish with rib meat cooked in traditional Chinese herbs from mainland China. 
+        Herbs and ginseng are mixed not only as seasonings but also to add nutrients. 
+        Different types of mushrooms are often added to the dish and are usually served in Chinese pottery bowls. 
+        Nowadays there are sacks of Bak Kut Tea, which contain all the necessary ingredients.
+    </div>
+    </div>
+
+   <div class="cuisine" onclick="toggleRecipe('claypotchicken')">
+        <div class="wrapper">
+            <div class="image">
+                <img src="ClaypotChickenRice.jpg"/>
+                <div class="content">
+                    <h1>Claypot Chicken Rice</h1>
+                </div>
+            </div> 
+        </div>
+        <div id="claypotchicken" class="recipe">
+            Seasoned rice is cooked in a claypot with secondary ingredients, and finished with soy sauce. 
+            Lightly sweet and savoury, this chicken rice is traditionally cooked with charcoal fire. 
+            Typical additions include salted fish and lap cheong (sweet Chinese pork sausage) to add more flavour and depth to the dish, 
+            although customers are free to pick and choose their accompaniments. As most places still use the traditional charcoal fire to cook, 
+            a wait time is normally expected when indulging in this particular Malaysian Chinese dish
+        </div> 
+    </div>
+  
+    <div class="cuisine" onclick="toggleRecipe('currylaksa')">
+        <div class="wrapper">
+            <div class="image">
+                <img src="curry-laksa.png"/>
+                <div class="content">
+                    <h1>Curry Laksa</h1>
+                </div>
+            </div> 
+        </div>
+        <div id="currylaksa" class="recipe">
+            Curry Laksa (Curry Mee) is one of the signature dishes of the Malaysian Chinese community. 
+            It comes in various versions from mild to spicy with different toppings, depending on region. 
+            The common theme is the coconut milk base curried soup with noodles.
+            This dish is simply known as curry mee in the northern part of Malaysia.       
+         </div> 
+    </div>
+
+    <div class="cuisine" onclick="toggleRecipe('charkwayteow')">
+        <div class="wrapper">
+            <div class="image">
+                <img src="char-koay-teow.jpg"/>
+                <div class="content">
+                    <h1>Char Kway Teow</h1>
+                </div>
+            </div> 
+        </div>
+        <div id="charkwayteow" class="recipe">
+           Char kway teow is a stir-fried rice noodle dish from Maritime Southeast Asia of southern Chinese origin.
+           In Hokkien, char means 'stir-fried' and kway teow refers to flat rice noodles. It is made from flat rice noodles or kway teow.
+           Char kway teow is a popular, inexpensive dish usually eaten for breakfast and sold at food stalls.
+           Stir-fried over very high heat with garlic, light and dark soy sauce, chili paste, whole prawns, shelled blood cockles,
+           chopped Chinese chives, slices of Chinese sausage and bean sprouts. Other common ingredients include fishcake and belachan.
+        </div> 
+    </div>
+
+    </div>
+    <footer id="footer"></footer>
+    <script>
+
+        $(function () {
+            $("#navbar").load("nav.html");
+        });
+        $(function (){
+            $("footer").load("footer.html");
+        });
+        function toggleRecipe(id) {
+            var recipe = document.getElementById(id);
+            if (recipe.style.display === "none" || recipe.style.display === "") {
+                recipe.style.display = "block";
+            } else {
+                recipe.style.display = "none";
+            }
+        }
+
+        // Dark mode toggle functionality
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+
+            // Save dark mode preference
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', null);
+            }
+        });
+    </script>
+</body>
+</html>

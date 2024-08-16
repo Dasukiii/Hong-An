@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Map of Malaysian Cuisines</title>
+    <link rel="stylesheet" href="home.css" type="text/css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(DeliFood.jpg);
+            color: #333;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+        #map {
+            height: 600px; /* Set a height for the map */
+            width: 100%;
+        }
+        .container {
+            max-width: 1140px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9); /* Slightly translucent background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar"></nav>
+    <div class="container">
+        <h1><strong>Explore the Rich Culinary Heritage of Malaysia</strong></h1>
+        <p>
+            Welcome to the interactive map of Cuisine Malaysia! This map highlights some of the most famous dishes
+            from different regions across Malaysia. Click on the markers to learn more about the dishes that are
+            uniquely associated with each location. Whether it's the savory Nasi Lemak from Kuala Lumpur or the fresh
+            Sabah Seafood from Kota Kinabalu, this map provides a visual journey through the diverse and flavorful
+            culinary traditions of Malaysia.
+        </p>
+    <div id="map"></div>
+    </div>
+    <footer id="footer"></footer>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map and set its view to a geographical point and zoom level
+        var map = L.map('map').setView([4.2105, 101.9758], 6); // Coordinates for Malaysia
+
+        // Add a tile layer to the map (this is the map's background)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Add markers for different regions/cities
+        var marker1 = L.marker([3.1390, 101.6869]).addTo(map) // Kuala Lumpur
+            .bindPopup("<img src='https://cdn.tatlerasia.com/tatlerasia/i/2022/04/05092309-villageparkofficial_cover_1080x1080.jpeg' alt='Nasi Lemak' style ='width:100%; height: 100px; border-radius:10px;  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);'><br><b>Kuala Lumpur</b><br>Known for Nasi Lemak.").openPopup();
+
+        var marker2 = L.marker([5.9804, 116.0735]).addTo(map) // Kota Kinabalu
+            .bindPopup("<img src='https://1.bp.blogspot.com/-3WPfcqEdSNQ/TixQDn1Z4aI/AAAAAAAAE98/cQKO5eR0L7I/s640/DSC_0182_resize.JPG' alt='Sabah Seafood' style ='width:100%; height: 100px; border-radius:10px;  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);'><br><b>Kota Kinabalu</b><br>Famous for Sabah Seafood.");
+
+        var marker3 = L.marker([1.4927, 103.7414]).addTo(map) // Johor Bahru
+            .bindPopup("<img src='https://i.pinimg.com/originals/47/24/39/472439f4e389894858060715d7c9d006.jpg' alt='Johor Laksa' style ='width:100%; height: 100px; border-radius:10px;  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);'><br><b>Johor Bahru</b><br>Home to Johor Laksa.");
+
+        var marker4 = L.marker([2.1896, 102.2501]).addTo(map) // Melaka
+            .bindPopup("<img src='https://www.gomelaka.my/site/wp-content/uploads/2013/09/chicken-rice-ball.jpg' alt='Chicken Rice Ball' style ='width:100%; height: 100px; border-radius:10px;  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);'><br><b>Melaka</b><br>Known for Chicken Rice Balls.");
+
+        var marker5 = L.marker([4.3986, 113.9917]).addTo(map) // Sarawak
+            .bindPopup("<img src='https://cdn.tasteatlas.com/images/dishes/2fb147502c0c4e97940738c9bc427656.jpg' alt='Sarawak Laksa' style ='width:100%; height: 100px; border-radius:10px;  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);'><br><b>Sarawak</b><br>Famous for Sarawak Laksa.");
+
+        var marker6 = L.marker([5.4164, 100.3327]).addTo(map) // Penang
+            .bindPopup("<img src='https://sweecooks.com/wp-content/uploads/2021/04/Penang-char-kuey-teow-malaysia-scaled.jpg' alt='Char Kway Teow' style ='width:100%; height: 100px; border-radius:10px;  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);'><br><b>Penang</b><br>Known for Char Kway Teow.");
+
+        var marker7 = L.marker([2.9925, 101.7908]).addTo(map) // Port Dickson
+            .bindPopup("<img src='https://portdickson.info/img/food-ikan-bakar.jpg' alt='Grilled SeaFood' style ='width:100%; height: 100px; border-radius:10px;  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);'><br><b>Port Dickson</b><br>Popular for Grilled Seafood.");
+
+        var marker8 = L.marker([3.1673, 101.7020]).addTo(map) // Petaling Jaya
+            .bindPopup("<img src='https://www.lokataste.com/wp-content/uploads/2022/06/96828525_2943560835760283_734154492370485248_n.jpg' alt='Nasi Kandar' style ='width:100%; height: 100px; border-radius:10px;  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);'><br><b>Petaling Jaya</b><br>Home to famous Nasi Kandar.");
+
+        var marker9 = L.marker([3.9285, 101.7783]).addTo(map) // Ipoh
+            .bindPopup("<img src='https://images.deliveryhero.io/image/fd-my/LH/k6fl-hero.jpg' alt='Chicken Hor Fun' style ='width:100%; height: 100px; border-radius:10px;  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);'><br><b>Ipoh</b><br>Famous for Chicken Hor Fun.");
+
+        $(function () {
+            $("#navbar").load("nav.html");
+        });
+        $(function () {
+          $("#footer").load("footer.html");
+        });
+    </script>
+</body>
+</html>

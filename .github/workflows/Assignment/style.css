@@ -1,0 +1,433 @@
+
+.navbar {
+  display: flex;
+  background-color: #111111;
+  overflow: hidden;
+}
+.navbar a {
+  flex: 1;
+  display: block;
+  color: white;
+  text-align: left;
+  padding: 8px 8px;
+  text-decoration: none;
+}
+
+.navbar-brand img {
+  height: 60px; /* Fixed height */
+  width: auto;  /* Adjust width to maintain aspect ratio */
+  max-width: 100%; /* Ensure it doesn't exceed container width */
+  object-fit: contain; /* Stretch slightly to fit the height */
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand img:hover {
+  transition: none;
+  transform: none; /* Disable any transform effects on hover */
+  opacity: 1; /* Ensure opacity remains consistent */
+}
+
+.navbar-nav .nav-link {
+  transition: background-color 0.3s ease;
+  font-size: 20px;
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff; 
+}
+/* General Styles */
+
+/* Header Styles */
+header {
+  background: var(--header-bg);
+  color: var(--header-text);
+  padding-top: 30px;
+  min-height: 70px;
+  border-bottom: #0779e4 3px solid;
+}
+
+header h1 {
+  text-align: center;
+  margin: 0;
+  font-size: 24px;
+}
+
+/* Main Content Styles */
+#main-content {
+  padding: 20px;
+  background: var(--main-content-bg);
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  opacity: 0.98;
+}
+
+#main-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px 0;
+  border-radius: 10px;
+  
+}
+
+/* Cuisine Preview Styles */
+.cuisine-preview {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.cuisine {
+  text-align: center;
+  background-color: var(--cuisine-bg);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: var(--cuisine-text);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.cuisine .image-container {
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.cuisine img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px grey;
+  transition: transform 0.3s ease;
+}
+
+.cuisine img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cuisine h3 {
+  margin-top: 15px;
+  font-size: 20px;
+  color: var(--cuisine-text);
+}
+
+.cuisine p {
+  margin: 10px 0;
+  color: var(--cuisine-description)
+}
+
+.cuisine button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cuisine button:hover {
+  background-color: #055bb5;
+}
+
+/* Footer Styles */
+footer {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+/* Dark Mode Toggle Button */
+#darkModeToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* CSS Variables */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --header-bg: #333;
+  --header-text: #fff;
+  --main-content-bg: #fff;
+  --cuisine-bg: #fff;
+  --cuisine-text: #444;
+  --cuisine-description: #666;
+  --button-bg: #0779e4;
+  --button-text: #ffffff;
+  --footer-bg: #333;
+  --footer-text: #fff;
+}
+
+.dark-mode {
+  --bg-color: #1a1a1a;
+  --text-color: #f4f4f4;
+  --header-bg: #2c2c2c;
+  --header-text: #fff;
+  --main-content-bg: #2c2c2c;
+  --cuisine-bg: #3a3a3a;
+  --cuisine-text: #f4f4f4;
+  --cuisine-description: #ccc;
+  --button-bg: #e47a07;
+  --button-text: #ffffff;
+  --footer-bg: #2c2c2c;
+  --footer-text: #fff;
+}
+
+/* Feedback Form Styles */
+.feedback-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.feedback-header {
+  background-color: var(--header-bg);
+  padding: 20px;
+  text-align: center;
+}
+
+.feedback-form {
+  margin-top: 20px;
+}
+
+.feedback-input,
+.feedback-textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+}
+
+.feedback-submit {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.feedback-submit:hover {
+  background-color: #45a049;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #f4f4f4;
+}
+
+body.dark-mode header {
+  background: #2c2c2c;
+  border-bottom-color: #e47a07;
+}
+
+body.dark-mode #main-content {
+  background: #2c2c2c;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .cuisine {
+  background-color: #3a3a3a;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .cuisine h3 {
+  color: #f4f4f4;
+}
+
+body.dark-mode .recipe {
+  background-color: #2c2c2c;
+  color: #f4f4f4;
+}
+
+body.dark-mode footer {
+  background: #2c2c2c;
+}
+
+/* Styles for Indian Cuisines page */
+.indian-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px; /* Reduced gap between grid items */
+  margin-top: 20px; /* Reduced margin */
+  width: 90%; /* Reduced overall width of the grid */
+  margin-left: auto;
+  margin-right: auto;
+}
+.indian-grid .cuisine {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px; /* Reduced border-radius */
+  padding: 15px; /* Reduced padding inside each cuisine item */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Slightly smaller shadow */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.indian-grid .cuisine:hover {
+  transform: translateY(-3px); /* Slightly less elevation on hover */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Slightly smaller shadow on hover */
+}
+.indian-grid .cuisine img {
+  height: 40px; /* Reduced image height */
+  margin-bottom: 10px; /* Reduced margin below the image */
+}
+.recipe {
+  display: none;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 10px; /* Reduced padding inside the recipe section */
+  margin-top: 10px; /* Reduced margin above the recipe section */
+  text-align: left;
+}
+
+/* chinese cuisine */
+.wrapper{
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.image{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  position: relative;
+}
+.image:hover{
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.img{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: auto;
+}
+.content{
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  transition: 0.5s;
+}
+.content:hover{
+  opacity: 1;
+}
+.content h1{
+  font-size: 40px;
+  margin: auto;
+  color:#fff;
+}
+.chinese-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px; /* Reduced gap between grid items */
+  margin-top: 20px; /* Reduced margin */
+  width: 90%; /* Reduced overall width of the grid */
+  margin-left: auto;
+  margin-right: auto;
+}
+.chinese-grid .cuisine {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px; /* Reduced border-radius */
+  padding: 15px; /* Reduced padding inside each cuisine item */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Slightly smaller shadow */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.chinese-grid .cuisine:hover {
+  transform: translateY(-3px); /* Slightly less elevation on hover */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Slightly smaller shadow on hover */
+}
+.chinese-grid .cuisine img {
+  height: 40px; /* Reduced image height */
+  margin-bottom: 10px; /* Reduced margin below the image */
+}
+.recipe {
+  display: none;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 10px; /* Reduced padding inside the recipe section */
+  margin-top: 10px; /* Reduced margin above the recipe section */
+  text-align: left;
+}
+
+
+/* Styles for Malay Cuisines page */
+.malay-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px; /* Reduced gap between grid items */
+  margin-top: 20px; /* Reduced margin */
+  width: 90%; /* Reduced overall width of the grid */
+  margin-left: auto;
+  margin-right: auto;
+}
+.malay-grid .cuisine {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px; /* Reduced border-radius */
+  padding: 15px; /* Reduced padding inside each cuisine item */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Slightly smaller shadow */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.malay-grid .cuisine:hover {
+  transform: translateY(-3px); /* Slightly less elevation on hover */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Slightly smaller shadow on hover */
+}
+.malay-grid .cuisine img {
+  height: 40px; /* Reduced image height */
+  margin-bottom: 10px; /* Reduced margin below the image */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .cuisine-preview {
+    flex-direction: column;
+    align-items: center;
+  }
+  .cuisine-preview .cuisine {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+  .indian-grid {
+    grid-template-columns: 1fr;
+  }
+}
